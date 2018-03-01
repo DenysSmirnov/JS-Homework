@@ -1,4 +1,4 @@
-$('.burger').click(function(e) {
+$('.burger').on('click', function(e) {
     e.preventDefault();
     $('.sidebar-wrapper').css('display', 'block');
     $('.sidebar').addClass('-up');

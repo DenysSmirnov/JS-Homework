@@ -253,14 +253,24 @@ ul.nav768 li:first-child {
 }
 ul.nav768 li {
     border-bottom: solid 1px #efefef;
+}
+ul.nav768 li a {
+    display: block;
     padding: 15px 40px;
+}
+ul.nav768 li a:hover {
+    display: block;
+    padding: 15px 40px;
+    background-color: #000;
+    color: #fd926d;
+    text-decoration: none;
 }
 
 /* gallery */
 .gallery {
 	margin: 0 auto;
-	width: 1200px;
-    height: 440px;
+	max-width: 1200px;
+    /*height: 440px;*/
     position: relative;
     overflow: hidden;
     z-index: 1;
@@ -274,14 +284,16 @@ ul.nav768 li {
 .gallery ul li{
 	/*width: 100%;*/
     float: left;
-	/*position: absolute;*/
+	position: relative;
 	/*top: 0;
 	left:0;*/
-    width: 1200px;
-    height: 440px;
+    /*width: 690px;*/
+    /*height: 440px;*/
 }
 .gallery ul li.active{
-	z-index: 2
+	z-index: 2;
+    /*transform: translateX(-1200px);
+    transition: all .8s ease-in-out;*/
 }
 .gallery img{
 	width: 100%;
