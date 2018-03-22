@@ -1,0 +1,29 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+.btn {
+    margin: 40% 45%;
+}
+.context-menu {
+    margin: 0;
+    width: 200px;
+    height: 250px;
+    position: absolute;
+    background: #fff;
+    border: solid 1px #ebebeb;
+    border-radius: 3px;
+    -webkit-box-shadow: 2px 2px 5px rgba(0,0,4,.3);
+    box-shadow: 2px 2px 5px rgba(0,0,4,.3);
+    display: inline-block;
+}
+a {
+    padding: 5px 20px;
+    color: #000;
+    font-size: 18px;
+    display: block;
+    text-decoration: none;
+}
+a:hover {
+    background-color: #ebebeb;
+}
