@@ -35,7 +35,9 @@
     menu.addEventListener('click', (event) => {
         event.preventDefault();
         app.removeChild(menu);
-        alert(event.target.innerText);
+        setTimeout(() => {
+            alert(event.target.innerText);
+        }, 100);
     });
     document.body.addEventListener('contextmenu', (event) => {
         event.preventDefault();
