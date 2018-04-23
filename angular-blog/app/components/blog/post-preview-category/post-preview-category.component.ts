@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Post } from '../../../models/post';
 import { PostService } from '../../../services/post.service';
@@ -10,7 +10,7 @@ import { PostService } from '../../../services/post.service';
 })
 export class PostPreviewCategoryComponent implements OnInit {
   public post: Post;
-  public postList: Array<Post>;
+  public postList: Array<Post> = [];
 
   constructor(
     private postService: PostService,
@@ -19,7 +19,10 @@ export class PostPreviewCategoryComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
       console.log(params);
-      this.post = this.postService.getCategory(params.category);
+      this.postService.getCategory(params.category).subscribe(posts => {
+        // this.postList = posts;
+        this.post = posts;
+      });
     });
   }
 

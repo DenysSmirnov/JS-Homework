@@ -7,7 +7,8 @@
     <img [src]="post.image"  [alt]="post.title">
   </div>
   <div class="post-description p-3" [innerHtml]="post.description"></div>
-  <div class="post-detail-page p-3 d-flex justify-content-end">
+  <div class="post-detail-page p-3 d-flex justify-content-between">
+    <a [routerLink]="['category', post.category]" class="btn btn-light" [innerHtml]="post.category"></a>
     <a [routerLink]="['detail', post.id]" class="btn btn-light">Читать подробнее...</a>
   </div>
 </article>

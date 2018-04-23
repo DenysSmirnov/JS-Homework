@@ -9,13 +9,15 @@ import { PostService } from '../../services/post.service';
 })
 
 export class BlogComponent implements OnInit {
-  public postList: Array<Post>;
+  public postList: Array<Post> = [];
 
   constructor(private postService: PostService) {
   }
 
   ngOnInit() {
-   this.postList = this.postService.getPosts();
+    this.postService.posts.subscribe(posts => {
+      this.postList = posts;
+    });
   }
 
 }

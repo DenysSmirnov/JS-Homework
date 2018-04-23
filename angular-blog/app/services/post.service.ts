@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Post } from '../models/post';
-// import { Observable } from 'rxjs/Observable';
-// import { of } from 'rxjs/observable/of';
+import { Observable } from 'rxjs/Observable';
+import { of } from 'rxjs/observable/of';
 
 @Injectable()
 export class PostService {
+  public posts: Observable<Post[]>;
   private postList: Array<Post> = [
     new Post(
       'Some title',
@@ -32,20 +33,25 @@ export class PostService {
       'Алгоритмы')
   ];
 
-  constructor() { }
-
-  // public getPosts(): Observable <Post[]> {
-  //   return of(this.postList);
-  // }
-   public getPosts(): Array<Post> {
-    return this.postList;
+  constructor() {
+    this.posts = Observable.create((observer) => {
+      setTimeout(() => {
+        observer.next(this.postList);
+      }, 2000);
+    });
   }
 
-  public getSinglePost(id: number): Post {
-    return this.postList.filter(post => post.id === id).pop();
+  public getPosts(): Observable<Post[]> {
+    return of(this.postList);
   }
 
-  public getCategory(category: string): Post {
-    return this.postList.filter(post => post.category === category).pop();
+  public getSinglePost(id: number): Observable<Post> {
+    const singlePost = this.postList.filter(post => post.id === id).pop();
+    return of(singlePost);
+  }
+
+  public getCategory(category: string): Observable<Post> {
+    const categoryPost = this.postList.filter(post => post.category === category).pop();
+    return of(categoryPost);
   }
 }
